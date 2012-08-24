@@ -1,50 +1,35 @@
-package jp.co.dhw.review2;
+﻿package jp.co.dhw.review2;
 
 public class Teacher extends User{
-
+	
+	//インスタンス変数宣言
 	public String subject;
-
-	public static void main(String[] args){
-
-		//インスタンス化
-		Teacher nagasawa_t = new Teacher(1, "長澤", "大輔", "デザイン");
-		nagasawa_t.showName();
-
-		Teacher raddi_t = new Teacher(2, "ラディ", "ジェイソン", "デザイン");
-		raddi_t.showName();
-
-		Teacher usui_t = new Teacher(3, "薄井", "隆", "Web/アプリ");
-		usui_t.showName();
-
-		Teacher yamamoto_t = new Teacher(4, "山本", "浩司", "3DCG");
-		yamamoto_t.showName();
-
-		Teacher hanabusa_t = new Teacher(5, "ハナブサ", "ノブユキ", "デザイン");
-		hanabusa_t.showName();
-
-		Teacher konuma_t = new Teacher(6, "コヌマ", "ヨシツグ", "Web/アプリ");
-		konuma_t.showName();
-
-		Teacher watanabe_t = new Teacher(7, "渡部", "昇治", "Web/アプリ");
-		watanabe_t.showName();
+	
+	//コンストラクタ
+	public Teacher(Integer _id, String _firstName, String _lastName, String _subject){
+		
+		//Userクラスのコンストラクタ実行
+		super(_id,_firstName,_lastName);
+		
+		//インスタンス変数初期化
+		this.subject = _subject;
 	}
 
-	public void Teacher(Integer num, String fName, String lName, String sub){
-
-		this.id = num;
-		this.firstName = fName;
-		this.lastName = lName;
-		this.subject = sub;
-	}
-
+	//インスタンスメソッド
 	public String getSubject(){
-
+		
+		//戻り値
 		return this.subject;
 	}
 
+	//オーバーライド
 	@Override
 	public void showName(){
+		
+		//UserクラスのshowName()実行
+		super.showName();
 
-		System.out.println("氏名" + this.firstName + ":" + this.lastName + "教科" + this.subject);
+		//コンソール出力
+		System.out.println("教科：" + this.getSubject());
 	}
 }
